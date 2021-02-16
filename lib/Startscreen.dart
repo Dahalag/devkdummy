@@ -1,7 +1,9 @@
 import 'package:devk_dummy/Buttonpages.dart/%C3%96ffnungszeitenpage.dart';
 import 'package:devk_dummy/Buttonpages.dart/Kontaktpage.dart';
 import 'package:devk_dummy/Buttonpages.dart/Teampage.dart';
-import 'package:devk_dummy/Buttonpages.dart/Versicherungpage.dart';
+import 'package:devk_dummy/Buttonpages.dart/VersicherungpageSach.dart';
+import 'package:devk_dummy/Buttonpages.dart/VersicherungspageLeben.dart';
+import 'package:devk_dummy/Buttonpages.dart/NochFragenPage.dart';
 import 'package:flutter/material.dart';
 import 'package:devk_dummy/const.dart';
 import 'package:devk_dummy/SizeConfig.dart';
@@ -76,7 +78,7 @@ class _StartscreenState extends State<Startscreen> {
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) =>
-                            Versicherungspage()));
+                            VersicherungspageLeben()));
               },
             ),
           ],
@@ -95,7 +97,7 @@ class _StartscreenState extends State<Startscreen> {
                 bottom: SizeConfig.defaultSize * 2,
                 left: SizeConfig.defaultSize * 2),
             child: Text(
-              'Willkommen bei der Proximus!',
+              'Willkommen bei der Proximus Versicherungs AG!',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
@@ -135,67 +137,46 @@ class _StartscreenState extends State<Startscreen> {
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 20),
-                            child: ListView(
-                              children: [
-                                Text(
-                                  einfuegen,
-                                  style: TextStyle(
-                                    color: devkgreen,
-                                    fontSize: 18,
-                                    letterSpacing: 1,
-                                    fontWeight: FontWeight.bold,
+                            child: Container(
+                              height: 150,
+                              child: ListView(
+                                children: [
+                                  Text(
+                                    einfuegen,
+                                    style: TextStyle(
+                                      color: devkgreen,
+                                      fontSize: 18,
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: SizeConfig.defaultSize * 10,
+                        height: SizeConfig.defaultSize * 5,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            color: devkgreen,
-                            child: FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            Teampage()));
-                              },
-                              child: Text(
-                                "Team",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
+                      Container(
+                        color: devkgreen,
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Teampage()));
+                          },
+                          child: Text(
+                            "Über uns",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
                             ),
                           ),
-                          Spacer(),
-                          Container(
-                            color: devkgreen,
-                            child: FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            Oeffnungszeiten()));
-                              },
-                              child: Text(
-                                "Öffnungszeiten",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                       SizedBox(
                         height: SizeConfig.defaultSize * 2,
@@ -210,10 +191,10 @@ class _StartscreenState extends State<Startscreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (BuildContext context) =>
-                                            Kontaktpage()));
+                                            VersicherungspageSach()));
                               },
                               child: Text(
-                                "Kontakt",
+                                "Sachvers.",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
@@ -230,10 +211,10 @@ class _StartscreenState extends State<Startscreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (BuildContext context) =>
-                                            Versicherungspage()));
+                                            VersicherungspageLeben()));
                               },
                               child: Text(
-                                "Versicherungen",
+                                "Lebensvers.",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
@@ -242,6 +223,50 @@ class _StartscreenState extends State<Startscreen> {
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: SizeConfig.defaultSize * 2,
+                      ),
+                      Container(
+                        color: devkgreen,
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        Kontaktpage()));
+                          },
+                          child: Text(
+                            "Kontakt",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: SizeConfig.defaultSize * 2,
+                      ),
+                      Container(
+                        color: devkgreen,
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        NochFragenPage()));
+                          },
+                          child: Text(
+                            "Noch Fragen?",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
